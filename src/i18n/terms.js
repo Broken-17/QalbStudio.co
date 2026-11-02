@@ -28,7 +28,7 @@ const en = (v) => [
     `Tell us within ${v.days} days of delivery if you want to return or exchange an item. Damaged, defective or wrong items must be reported within 48 hours.`,
     `Once we approve a return, pickup, checking and refund are completed within ${v.refund} working days.`,
     'Items must be unworn, unwashed and undamaged, with tags and original packaging.',
-    'Refunds go back by UPI or bank transfer to the person who paid. Your first size exchange is free, subject to stock.',
+    'Refunds go back by UPI or bank transfer to the person who paid. Size exchanges are subject to stock, and delivery charges will be applicable.',
   ] },
   { id: 'video', title: '5. Unboxing video (please record one)', items: [
     'Please record an unboxing video of every order: start with the sealed parcel, show the address label, and keep filming without cuts until you have shown each item.',
@@ -72,7 +72,7 @@ const hi = (v) => [
     `रिटर्न या एक्सचेंज चाहिए तो डिलीवरी के ${v.days} दिन के भीतर बताएँ। ख़राब, दोषपूर्ण या ग़लत आइटम की सूचना 48 घंटे के भीतर दें।`,
     `रिटर्न मंज़ूर होने के बाद पिकअप, जाँच और रिफ़ंड ${v.refund} कार्य दिवस में पूरा होता है।`,
     'आइटम बिना पहना, बिना धुला और बिना ख़राबी का हो, टैग और असली पैकिंग के साथ।',
-    'रिफ़ंड भुगतान करने वाले को UPI या बैंक ट्रांसफ़र से जाता है। पहला साइज़ एक्सचेंज मुफ़्त है, स्टॉक के अनुसार।',
+    'रिफ़ंड भुगतान करने वाले को UPI या बैंक ट्रांसफ़र से जाता है। साइज़ एक्सचेंज स्टॉक पर निर्भर है और उस पर डिलीवरी शुल्क लागू होगा।',
   ] },
   { id: 'video', title: '5. अनबॉक्सिंग वीडियो (कृपया बनाएँ)', items: [
     'हर ऑर्डर का अनबॉक्सिंग वीडियो बनाएँ: सील बंद पार्सल से शुरू करें, पते का लेबल दिखाएँ, और हर आइटम दिखाने तक बिना कट के रिकॉर्ड करते रहें।',
@@ -116,7 +116,7 @@ const ur = (v) => [
     `واپسی یا تبادلہ چاہیے تو ڈیلیوری کے ${v.days} دن کے اندر بتائیں۔ خراب، ناقص یا غلط آئٹم کی اطلاع 48 گھنٹوں کے اندر دیں۔`,
     `واپسی منظور ہونے کے بعد پک اپ، جانچ اور رقم کی واپسی ${v.refund} کام کے دنوں میں مکمل ہوتی ہے۔`,
     'آئٹم بغیر پہنا، بغیر دھلا اور بغیر خرابی کا ہو، ٹیگ اور اصل پیکنگ کے ساتھ۔',
-    'رقم ادا کرنے والے کو UPI یا بینک ٹرانسفر سے واپس جاتی ہے۔ پہلا سائز کا تبادلہ مفت ہے، اسٹاک کے مطابق۔',
+    'رقم ادا کرنے والے کو UPI یا بینک ٹرانسفر سے واپس جاتی ہے۔ سائز کا تبادلہ اسٹاک پر منحصر ہے اور اس پر ڈیلیوری چارجز لاگو ہوں گے۔',
   ] },
   { id: 'video', title: '5. ان باکسنگ ویڈیو (براہِ کرم بنائیں)', items: [
     'ہر آرڈر کی ان باکسنگ ویڈیو بنائیں: سیل بند پارسل سے شروع کریں، پتے کا لیبل دکھائیں، اور ہر آئٹم دکھانے تک بغیر کٹ کے ریکارڈنگ جاری رکھیں۔',

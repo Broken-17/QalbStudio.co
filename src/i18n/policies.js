@@ -26,7 +26,7 @@ export function vars(lang) {
   const T = {
     en: {
       wd: 'working days',
-      free: 'Delivery is free.',
+      free: 'Delivery is free. Cash on delivery (COD) may have an extra charge depending on your location. We confirm the exact amount on WhatsApp before dispatch.',
       fee: `A flat shipping charge of ${money(fee)} applies per order.`,
       cod: adv
         ? `Cash on delivery is available. To confirm a COD order you pay a small advance of ${money(adv)} now (by UPI), and the remaining balance to the courier when the parcel arrives.`
@@ -37,7 +37,7 @@ export function vars(lang) {
     },
     hi: {
       wd: 'कार्य दिवस',
-      free: 'डिलीवरी मुफ़्त है।',
+      free: 'डिलीवरी मुफ़्त है। कैश ऑन डिलीवरी (COD) पर आपकी लोकेशन के अनुसार अतिरिक्त शुल्क लग सकता है। सटीक रक़म हम डिस्पैच से पहले व्हाट्सऐप पर बताते हैं।',
       fee: `हर ऑर्डर पर ${money(fee)} का तय शिपिंग शुल्क लगता है।`,
       cod: adv
         ? `कैश ऑन डिलीवरी उपलब्ध है। COD ऑर्डर पक्का करने के लिए आप अभी (UPI से) ${money(adv)} का छोटा एडवांस देते हैं, और बाक़ी रक़म पार्सल आने पर कूरियर को।`
@@ -48,7 +48,7 @@ export function vars(lang) {
     },
     ur: {
       wd: 'کام کے دن',
-      free: 'ڈیلیوری مفت ہے۔',
+      free: 'ڈیلیوری مفت ہے۔ کیش آن ڈیلیوری (COD) پر آپ کی لوکیشن کے مطابق اضافی چارج لگ سکتا ہے۔ درست رقم ہم روانگی سے پہلے واٹس ایپ پر بتاتے ہیں۔',
       fee: `ہر آرڈر پر ${money(fee)} کا مقررہ شپنگ چارج لگتا ہے۔`,
       cod: adv
         ? `کیش آن ڈیلیوری دستیاب ہے۔ COD آرڈر پکا کرنے کے لیے آپ ابھی (UPI سے) ${money(adv)} کا چھوٹا ایڈوانس دیتے ہیں، اور باقی رقم پارسل آنے پر کوریئر کو۔`
@@ -105,7 +105,7 @@ const en = (v) => ({
       items: [
         `You can request a return or exchange within ${v.days} days of delivery.`,
         'The item must be unworn, unwashed and undamaged, with tags and original packaging intact.',
-        'Your first size exchange is free. We will arrange a pickup and send the new size, subject to stock.',
+        'Size exchanges are subject to stock, and delivery charges will be applicable. We will arrange a pickup and send the new size.',
         'Wrong item, manufacturing defect or damaged in transit? Tell us within 48 hours of delivery with clear photos. We will replace it or refund you in full, and the pickup is on us. We strongly recommend recording an unboxing video, without cuts, from the moment you open the sealed parcel. It is the best proof and settles claims fastest.',
         'Not eligible for return: items worn, washed or altered; items without tags; items bought in a final sale or marked “no returns”; and customised pieces.',
         'For hygiene and quality reasons we may refuse items returned with perfume, stains or damage that was not there at delivery.',
@@ -188,7 +188,7 @@ const hi = (v) => ({
       items: [
         `डिलीवरी के ${v.days} दिन के भीतर आप रिटर्न या एक्सचेंज माँग सकते हैं।`,
         'आइटम बिना पहना, बिना धुला और बिना ख़राबी का हो, टैग और असली पैकिंग के साथ।',
-        'पहला साइज़ एक्सचेंज मुफ़्त है। हम पिकअप करवाएँगे और स्टॉक के अनुसार नया साइज़ भेजेंगे।',
+        'साइज़ एक्सचेंज स्टॉक पर निर्भर है और उस पर डिलीवरी शुल्क लागू होगा। हम पिकअप करवाएँगे और नया साइज़ भेजेंगे।',
         'ग़लत आइटम, निर्माण की ख़राबी या रास्ते में टूट-फूट? डिलीवरी के 48 घंटे के भीतर साफ़ फ़ोटो के साथ बताएँ। हम बदल देंगे या पूरा पैसा लौटाएँगे, और पिकअप हमारी तरफ़ से। हम पार्सल खोलते समय, बिना कट के, अनबॉक्सिंग वीडियो रिकॉर्ड करने की सलाह देते हैं। यह सबसे अच्छा सबूत है और दावा जल्दी निपटता है।',
         'रिटर्न नहीं होंगे: पहने, धुले या बदले हुए आइटम; बिना टैग के आइटम; फ़ाइनल सेल या “नो रिटर्न” वाले आइटम; और कस्टम पीस।',
         'साफ़-सफ़ाई और क्वालिटी के कारण परफ़्यूम, दाग या डिलीवरी के बाद हुई ख़राबी वाले आइटम हम वापस नहीं ले सकते।',
@@ -271,7 +271,7 @@ const ur = (v) => ({
       items: [
         `ڈیلیوری کے ${v.days} دن کے اندر آپ واپسی یا تبادلہ مانگ سکتے ہیں۔`,
         'آئٹم بغیر پہنا، بغیر دھلا اور بغیر خرابی کا ہو، ٹیگ اور اصل پیکنگ کے ساتھ۔',
-        'پہلا سائز کا تبادلہ مفت ہے۔ ہم پک اپ کروائیں گے اور اسٹاک کے مطابق نیا سائز بھیجیں گے۔',
+        'سائز کا تبادلہ اسٹاک پر منحصر ہے اور اس پر ڈیلیوری چارجز لاگو ہوں گے۔ ہم پک اپ کروائیں گے اور نیا سائز بھیجیں گے۔',
         'غلط آئٹم، تیاری کی خرابی یا راستے میں ٹوٹ پھوٹ؟ ڈیلیوری کے 48 گھنٹوں کے اندر صاف تصاویر کے ساتھ بتائیں۔ ہم بدل دیں گے یا پوری رقم لوٹائیں گے، اور پک اپ ہماری طرف سے۔ ہم پارسل کھولتے وقت، بغیر کٹ کے، ان باکسنگ ویڈیو ریکارڈ کرنے کا مشورہ دیتے ہیں۔ یہ بہترین ثبوت ہے اور دعویٰ جلد نمٹتا ہے۔',
         'واپس نہیں ہوں گے: پہنے، دھلے یا بدلے ہوئے آئٹم؛ بغیر ٹیگ کے آئٹم؛ فائنل سیل یا “نو ریٹرن” والے آئٹم؛ اور کسٹم پیس۔',
         'صفائی اور کوالٹی کی وجہ سے پرفیوم، داغ یا ڈیلیوری کے بعد ہوئی خرابی والے آئٹم ہم واپس نہیں لے سکتے۔',
