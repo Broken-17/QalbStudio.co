@@ -14,7 +14,7 @@ export default function ComingSoon({ category }) {
   const live = liveCategories.map((c) => cat(c.name)).join(' · ');
 
   return (
-    <div className="soon reveal up" role="status">
+    <div className="soon" role="status">
       <i className="soon-ring" aria-hidden="true" />
       <i className="soon-ring r2" aria-hidden="true" />
       <span className="soon-ar" lang="ar" aria-hidden="true">{site.arabic}</span>
