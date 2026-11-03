@@ -291,3 +291,35 @@ html:is([lang='hi'], [lang='ur']) .tab { text-transform: none; letter-spacing: 0
 .marquee-track span.slogan i { color: var(--cream); }
 .help-block.highlight { padding: 22px; border: 1px solid rgba(217, 160, 102, 0.45); border-radius: 6px; background: rgba(217, 160, 102, 0.06); }
 .help-block h2 svg { display: inline; vertical-align: -3px; color: var(--ember); }
+
+/* ---------- "Coming soon" popup + category badges ---------- */
+.soon-wrap { position: fixed; inset: 0; z-index: 450; display: grid; place-items: center; padding: 16px; background: rgba(0, 0, 0, 0.68); backdrop-filter: blur(7px); animation: fade 0.3s ease both; }
+@keyframes fade { from { opacity: 0; } }
+.soon { position: relative; overflow: hidden; isolation: isolate; width: min(520px, 100%); padding: 48px 34px 36px; text-align: center; display: grid; justify-items: center; gap: 12px; border: 1px solid rgba(244, 237, 225, 0.28); border-radius: 12px; background: radial-gradient(420px 260px at 50% 0%, rgba(217, 160, 102, 0.16), transparent 70%), var(--coal); box-shadow: 0 40px 90px rgba(0, 0, 0, 0.65); animation: pop-in 0.55s var(--ease) both; }
+@keyframes pop-in { from { opacity: 0; transform: translateY(28px) scale(0.92); } }
+.soon-ar { position: absolute; z-index: -1; inset-inline-end: -4%; bottom: -14%; font-family: var(--arabic); font-weight: 700; font-size: 14rem; line-height: 1; color: var(--cream); opacity: 0.05; pointer-events: none; }
+.soon-ring { position: absolute; z-index: -1; top: -90px; left: 50%; width: 240px; height: 240px; margin-left: -120px; border-radius: 50%; border: 1px solid rgba(217, 160, 102, 0.5); animation: ping 3.6s ease-out infinite; }
+.soon-ring.r2 { animation-delay: 1.8s; }
+@keyframes ping { from { transform: scale(0.5); opacity: 0.9; } to { transform: scale(1.7); opacity: 0; } }
+.soon-x { position: absolute; top: 10px; inset-inline-end: 10px; }
+.soon-tag { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgba(217, 160, 102, 0.14); color: var(--ember); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+.soon-tag svg { animation: twinkle 1.8s ease-in-out infinite; }
+@keyframes twinkle { 50% { transform: scale(1.4) rotate(20deg); opacity: 0.6; } }
+.soon-cat { font-size: clamp(2.2rem, 7vw, 3.4rem); background: linear-gradient(100deg, var(--cream) 30%, var(--ember) 50%, var(--cream) 70%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 4.5s linear infinite; }
+@keyframes shimmer { to { background-position: -220% 0; } }
+.soon-title { font-size: 1.5rem; }
+.soon-live { color: var(--cream); font-size: 0.92rem; padding: 8px 14px; border: 1px dashed var(--line); border-radius: 6px; }
+.soon-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
+.soon-ig { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 0.82rem; color: var(--stone); transition: color 0.25s; }
+.soon-ig:hover { color: var(--cream); }
+html:is([lang='hi'], [lang='ur']) .soon-tag { letter-spacing: 0; text-transform: none; }
+
+.chips button.soon-chip { border-style: dashed; }
+.chips button em { font-style: normal; margin-inline-start: 8px; padding: 2px 7px; border-radius: 999px; background: var(--ember); color: var(--ink); font-size: 0.6rem; letter-spacing: 0.1em; vertical-align: 1px; }
+.chips button.on em { background: var(--ink); color: var(--cream); }
+.cat.is-soon { background: linear-gradient(135deg, var(--panel), var(--coal)); }
+.cat-ph { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--arabic); font-weight: 700; font-size: 7rem; color: var(--cream); opacity: 0.08; transition: transform 0.8s var(--ease), opacity 0.4s; }
+.cat.is-soon:hover .cat-ph { transform: scale(1.12); opacity: 0.16; }
+.cat.is-soon .cat-label small { color: var(--ember); }
+.soon-mini { font-style: normal; margin-inline-start: 8px; padding: 1px 7px; border-radius: 999px; background: rgba(217, 160, 102, 0.18); color: var(--ember); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; }
+@media (prefers-reduced-motion: reduce) { .soon-ring, .soon-cat, .soon-tag svg { animation: none !important; } .soon-cat { color: var(--cream); background: none; } }

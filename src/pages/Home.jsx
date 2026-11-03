@@ -5,7 +5,8 @@ import ProductCard from '../components/ProductCard';
 import { InstagramIcon } from '../components/Icons';
 import { site } from '../config/site';
 import { useI18n } from '../i18n';
-import { categories, products } from '../lib/catalog';
+import { products } from '../lib/catalog';
+import { shopCategories } from '../lib/categories';
 import { useTitle } from '../hooks/hooks';
 
 const valueIcons = [BadgeCheck, Shirt, HandHeart, Sparkles];
@@ -63,7 +64,7 @@ export default function Home() {
       )}
 
       {/* CATEGORIES */}
-      {categories.length > 1 && (
+      {shopCategories.length > 1 && (
         <section className="section tight">
           <div className="container">
             <div className="sec-head reveal up">
@@ -73,14 +74,14 @@ export default function Home() {
               </div>
             </div>
             <div className="cat-grid">
-              {categories.map((c, i) => {
-                const list = products.filter((p) => p.category === c);
+              {shopCategories.map((c, i) => {
+                const list = products.filter((p) => p.category === c.name);
                 return (
-                  <Link key={c} to={`/shop?category=${encodeURIComponent(c)}`} className="cat reveal up" style={{ '--d': `${i * 0.06}s` }}>
-                    <img src={list[0].images[0]} alt="" loading="lazy" />
+                  <Link key={c.name} to={`/shop?category=${encodeURIComponent(c.name)}`} className={`cat reveal up${c.soon ? ' is-soon' : ''}`} style={{ '--d': `${i * 0.06}s` }}>
+                    {list[0] ? <img src={list[0].images[0]} alt="" loading="lazy" /> : <span className="cat-ph" aria-hidden="true">{site.arabic}</span>}
                     <span className="cat-label">
-                      <strong>{cat(c)}</strong>
-                      <small>{t(list.length === 1 ? 'piece' : 'pieces', { n: list.length })}</small>
+                      <strong>{cat(c.name)}</strong>
+                      <small>{c.soon ? t('soon.eyebrow') : t(list.length === 1 ? 'piece' : 'pieces', { n: list.length })}</small>
                     </span>
                   </Link>
                 );

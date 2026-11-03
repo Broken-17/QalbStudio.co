@@ -3,7 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import { useI18n } from '../i18n';
-import { allSizes, categories, products } from '../lib/catalog';
+import ComingSoon from '../components/ComingSoon';
+import { allSizes, products } from '../lib/catalog';
+import { findCategory, shopCategories } from '../lib/categories';
 import { useTitle } from '../hooks/hooks';
 
 const sorts = {
@@ -43,6 +45,7 @@ export default function Shop() {
   }, [q, category, size, sort]);
 
   const active = q || category || size;
+  const comingSoon = category && findCategory(category)?.soon;
 
   return (
     <section className="section page-top">
@@ -61,8 +64,10 @@ export default function Shop() {
 
           <div className="chips" role="group">
             <button className={!category ? 'on' : ''} onClick={() => set('category', '')}>{t('shop.allChip')}</button>
-            {categories.map((c) => (
-              <button key={c} className={category === c ? 'on' : ''} onClick={() => set('category', c)}>{cat(c)}</button>
+            {shopCategories.map((c) => (
+              <button key={c.name} className={`${category === c.name ? 'on' : ''}${c.soon ? ' soon-chip' : ''}`} onClick={() => set('category', c.name)}>
+                {cat(c.name)}{c.soon && <em>{t('soon.badge')}</em>}
+              </button>
             ))}
           </div>
 
@@ -86,15 +91,19 @@ export default function Shop() {
           )}
         </p>
 
+        {comingSoon && <ComingSoon category={category} onClose={() => set('category', '')} />}
+
         {list.length ? (
           <div className="pgrid" key={`${q}|${category}|${size}|${sort}`}>
             {list.map((p, i) => <ProductCard key={p.slug} p={p} i={i} />)}
           </div>
         ) : (
-          <div className="empty">
-            <p className="serif big">{t('shop.none')}</p>
-            <p className="muted">{t('shop.noneHint')}</p>
-          </div>
+          !comingSoon && (
+            <div className="empty">
+              <p className="serif big">{t('shop.none')}</p>
+              <p className="muted">{t('shop.noneHint')}</p>
+            </div>
+          )
         )}
       </div>
     </section>

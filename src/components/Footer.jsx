@@ -6,7 +6,7 @@ import { InstagramIcon, WhatsAppIcon } from './Icons';
 import { site } from '../config/site';
 import { areaList } from '../config/store';
 import { useI18n } from '../i18n';
-import { categories } from '../lib/catalog';
+import { shopCategories } from '../lib/categories';
 import { hasLookbook } from '../lib/lookbook';
 import { waLink } from '../lib/whatsapp';
 
@@ -44,8 +44,8 @@ export default function Footer() {
         <nav aria-label={t('ft.shop')}>
           <h4>{t('ft.shop')}</h4>
           <Link to="/shop">{t('ft.all')}</Link>
-          {categories.slice(0, 5).map((c) => (
-            <Link key={c} to={`/shop?category=${encodeURIComponent(c)}`}>{cat(c)}</Link>
+          {shopCategories.slice(0, 6).map((c) => (
+            <Link key={c.name} to={`/shop?category=${encodeURIComponent(c.name)}`}>{cat(c.name)}{c.soon && <em className="soon-mini">{t('soon.badge')}</em>}</Link>
           ))}
           {hasLookbook && <Link to="/lookbook">{t('nav.lookbook')}</Link>}
         </nav>

@@ -1,6 +1,8 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { en, hi, ur } from './ui';
 import { store } from '../config/store';
+import { categoryList } from '../config/categories';
+import { extra } from './extra';
 
 const KEY = 'qalb_lang_v1';
 export const LANGS = [
@@ -8,7 +10,7 @@ export const LANGS = [
   { code: 'hi', label: 'हिन्दी', short: 'हि' },
   { code: 'ur', label: 'اردو', short: 'اردو' },
 ];
-const dicts = { en, hi, ur };
+const dicts = { en: { ...en, ...extra.en }, hi: { ...hi, ...extra.hi }, ur: { ...ur, ...extra.ur } };
 const Ctx = createContext(null);
 
 const initial = () => {
@@ -32,7 +34,7 @@ export function I18nProvider({ children }) {
 
   const t = useCallback(
     (key, vars) => {
-      let s = dicts[lang][key] ?? en[key] ?? key;
+      let s = dicts[lang][key] ?? dicts.en[key] ?? key;
       if (vars) Object.entries(vars).forEach(([k, v]) => { s = s.split(`{${k}}`).join(v); });
       return s;
     },
@@ -53,7 +55,7 @@ export function I18nProvider({ children }) {
     },
     [lang]
   );
-  const cat = useCallback((c) => (lang !== 'en' && store.categoryNames[c]?.[lang]) || c, [lang]);
+  const cat = useCallback((c) => (lang !== 'en' && (categoryList.find((x) => x.name === c)?.[lang] || store.categoryNames[c]?.[lang])) || c, [lang]);
 
   const value = useMemo(() => ({ lang, dir, setLang: (l) => dicts[l] && setLangState(l), t, loc, cat }), [lang, dir, t, loc, cat]);
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
