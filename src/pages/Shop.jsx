@@ -84,26 +84,24 @@ export default function Shop() {
           </div>
         </div>
 
-        <p className="result-line">
+        {!comingSoon && <p className="result-line">
           {t(list.length === 1 ? 'shop.result' : 'shop.results', { n: list.length })}
           {active && (
             <button className="clear" onClick={() => setParams({}, { replace: true })}><X size={14} /> {t('shop.clear')}</button>
           )}
-        </p>
+        </p>}
 
-        {comingSoon && <ComingSoon category={category} onClose={() => set('category', '')} />}
-
-        {list.length ? (
+        {comingSoon ? (
+          <ComingSoon category={category} />
+        ) : list.length ? (
           <div className="pgrid" key={`${q}|${category}|${size}|${sort}`}>
             {list.map((p, i) => <ProductCard key={p.slug} p={p} i={i} />)}
           </div>
         ) : (
-          !comingSoon && (
-            <div className="empty">
-              <p className="serif big">{t('shop.none')}</p>
-              <p className="muted">{t('shop.noneHint')}</p>
-            </div>
-          )
+          <div className="empty">
+            <p className="serif big">{t('shop.none')}</p>
+            <p className="muted">{t('shop.noneHint')}</p>
+          </div>
         )}
       </div>
     </section>

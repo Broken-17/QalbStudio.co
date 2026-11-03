@@ -293,15 +293,12 @@ html:is([lang='hi'], [lang='ur']) .tab { text-transform: none; letter-spacing: 0
 .help-block h2 svg { display: inline; vertical-align: -3px; color: var(--ember); }
 
 /* ---------- "Coming soon" popup + category badges ---------- */
-.soon-wrap { position: fixed; inset: 0; z-index: 450; display: grid; place-items: center; padding: 16px; background: rgba(0, 0, 0, 0.68); backdrop-filter: blur(7px); animation: fade 0.3s ease both; }
-@keyframes fade { from { opacity: 0; } }
-.soon { position: relative; overflow: hidden; isolation: isolate; width: min(520px, 100%); padding: 48px 34px 36px; text-align: center; display: grid; justify-items: center; gap: 12px; border: 1px solid rgba(244, 237, 225, 0.28); border-radius: 12px; background: radial-gradient(420px 260px at 50% 0%, rgba(217, 160, 102, 0.16), transparent 70%), var(--coal); box-shadow: 0 40px 90px rgba(0, 0, 0, 0.65); animation: pop-in 0.55s var(--ease) both; }
+.soon { position: relative; overflow: hidden; isolation: isolate; width: min(760px, 100%); margin: 36px auto 20px; padding: clamp(40px, 6vw, 64px) clamp(20px, 5vw, 48px); text-align: center; display: grid; justify-items: center; gap: 12px; border: 1px solid rgba(244, 237, 225, 0.28); border-radius: 12px; background: radial-gradient(420px 260px at 50% 0%, rgba(217, 160, 102, 0.16), transparent 70%), var(--coal); box-shadow: 0 40px 90px rgba(0, 0, 0, 0.65); animation: pop-in 0.55s var(--ease) both; }
 @keyframes pop-in { from { opacity: 0; transform: translateY(28px) scale(0.92); } }
 .soon-ar { position: absolute; z-index: -1; inset-inline-end: -4%; bottom: -14%; font-family: var(--arabic); font-weight: 700; font-size: 14rem; line-height: 1; color: var(--cream); opacity: 0.05; pointer-events: none; }
 .soon-ring { position: absolute; z-index: -1; top: -90px; left: 50%; width: 240px; height: 240px; margin-left: -120px; border-radius: 50%; border: 1px solid rgba(217, 160, 102, 0.5); animation: ping 3.6s ease-out infinite; }
 .soon-ring.r2 { animation-delay: 1.8s; }
 @keyframes ping { from { transform: scale(0.5); opacity: 0.9; } to { transform: scale(1.7); opacity: 0; } }
-.soon-x { position: absolute; top: 10px; inset-inline-end: 10px; }
 .soon-tag { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgba(217, 160, 102, 0.14); color: var(--ember); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
 .soon-tag svg { animation: twinkle 1.8s ease-in-out infinite; }
 @keyframes twinkle { 50% { transform: scale(1.4) rotate(20deg); opacity: 0.6; } }
